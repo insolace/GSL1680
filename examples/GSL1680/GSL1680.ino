@@ -19,14 +19,14 @@ pin | function  | Arduino Uno
 6   | Gnd       | gnd
 */
 
-#include "GSL1680.h"
+#include <GSL1680.h>
+#include <Wire.h>
 
 // Pins
 #define WAKE 4
 #define INTRPT 2
 
 GSL1680 TS = GSL1680();
-// An other constructor is available to enable some debug on serial : GSL1680(bool error, bool info);
 
 void setup () {
   Serial.begin(9600);
@@ -35,6 +35,7 @@ void setup () {
 }
 
 void loop () {
+
   if(digitalRead(INTRPT) == HIGH) {
     Serial.println("Touch");
     int NBFinger = TS.dataread();
