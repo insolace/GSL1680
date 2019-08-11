@@ -62,7 +62,7 @@ void GSL1680::clear_reg() {
     uint8_t DATA[4] = {0x88, 0x01, 0x04, 0x00};
     uint8_t TIMER[4] = {20, 5, 5, 20};
 
-    for (int i = 0; i<=4; i++) {
+    for (int i = 0; i<4; i++) {
 	    Wire.beginTransmission(I2CADDR);
         Wire.send(REG[i]);
         Wire.send(DATA[i]);
@@ -79,7 +79,7 @@ void GSL1680::reset() {
     uint8_t DATA[4] = {0x88, 0x04};
     uint8_t TIMER[4] = {20, 10};
 
-    for (int i = 0; i<=2; i++) {
+    for (int i = 0; i<2; i++) {
 	    Wire.beginTransmission(I2CADDR);
         Wire.send(REG[i]);
         Wire.send(DATA[i]);
