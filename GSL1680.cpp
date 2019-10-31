@@ -28,12 +28,12 @@ GSL1680::GSL1680 () {
 }
 
 void GSL1680::begin(uint8_t WAKE, uint8_t INTRPT) {
-    Serial.println("Starting TS boot up"); 
+    //Serial.println("Starting TS boot up"); 
     pinMode(WAKE, OUTPUT);          //
     digitalWrite(WAKE, LOW);        //
     pinMode(INTRPT, INPUT_PULLUP);  // Startup sequence PIN part
     delay(100);
-    Serial.println("Toggle Wake");
+    //Serial.println("Toggle Wake");
 	digitalWrite(WAKE, HIGH);
 	delay(50);
 	digitalWrite(WAKE, LOW);
@@ -43,18 +43,18 @@ void GSL1680::begin(uint8_t WAKE, uint8_t INTRPT) {
     Wire.begin();
 
     // CTP startup sequence
-	Serial.println("Clear reg");
+	//Serial.println("Clear reg");
 	clear_reg();
-	Serial.println("Reset chip");
+	//Serial.println("Reset chip");
 	reset();
-	Serial.println("Load FW");
+	//Serial.println("Load FW");
 	loadfw();
 	//startup_chip();
-	Serial.println("Reset chip 2");
+	//Serial.println("Reset chip 2");
 	reset();
-	Serial.println("Startup Chip");
+	//Serial.println("Startup Chip");
     startchip();
-	Serial.println("Init Done");
+	//Serial.println("Init Done");
 }
 
 void GSL1680::clear_reg() {
